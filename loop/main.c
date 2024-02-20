@@ -94,7 +94,7 @@ void addIP(FILE *catalogue){
         exit(1);
     }
     char addr[20];
-    printf("\n    Enter IP address : ");
+    printf("    Enter IP address : ");
     scanf(" %20s", addr);
     regi = regexec(&regex, addr, 0, NULL, 0);
     if (!regi) {
