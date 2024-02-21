@@ -4,13 +4,14 @@ project(IP_CATALOG C)
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic")
 
-# Inclure les répertoires d'en-tête SDL2
-include_directories(/opt/homebrew/include/SDL2)
+set(ENV{PKG_CONFIG_PATH} "/opt/homebrew/Cellar/gtk4/4.12.4/lib/pkgconfig")
 
-# Ajouter les chemins de la bibliothèque
-link_directories(/opt/homebrew/lib)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK4 REQUIRED IMPORTED_TARGET gtk4)
 
-add_executable(IP_CATALOG main.c)
+include_directories(${GTK4_INCLUDE_DIRS})
+link_directories(${GTK4_LIBRARY_DIRS})
 
-# Lier avec SDL2, SDL2_ttf et d'autres bibliothèques nécessaires
-target_link_libraries(IP_CATALOG SDL2 SDL2_ttf m dl)
+add_executable(IP_CATALOG main.c
+        include/conf.inc.h)
+target_link_libraries(IP_CATALOG PkgConfig::GTK4)

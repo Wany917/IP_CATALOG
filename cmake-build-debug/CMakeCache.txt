@@ -204,8 +204,50 @@ IP_CATALOG_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 IP_CATALOG_SOURCE_DIR:STATIC=/Users/yvann/CLionProjects/IP_CATALOG
 
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
+
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
+
+//Path to a library.
+pkgcfg_lib_GTK4_cairo:FILEPATH=/opt/homebrew/Cellar/cairo/1.18.0/lib/libcairo.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_cairo-gobject:FILEPATH=/opt/homebrew/Cellar/cairo/1.18.0/lib/libcairo-gobject.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_gdk_pixbuf-2.0:FILEPATH=/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/lib/libgdk_pixbuf-2.0.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_gio-2.0:FILEPATH=/opt/homebrew/Cellar/glib/2.78.4/lib/libgio-2.0.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_glib-2.0:FILEPATH=/opt/homebrew/Cellar/glib/2.78.4/lib/libglib-2.0.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_gobject-2.0:FILEPATH=/opt/homebrew/Cellar/glib/2.78.4/lib/libgobject-2.0.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_graphene-1.0:FILEPATH=/opt/homebrew/Cellar/graphene/1.10.8/lib/libgraphene-1.0.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_gtk-4:FILEPATH=/opt/homebrew/Cellar/gtk4/4.12.4/lib/libgtk-4.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_harfbuzz:FILEPATH=/opt/homebrew/Cellar/harfbuzz/8.3.0/lib/libharfbuzz.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_intl:FILEPATH=/opt/homebrew/opt/gettext/lib/libintl.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_pango-1.0:FILEPATH=/opt/homebrew/Cellar/pango/1.50.14/lib/libpango-1.0.dylib
+
+//Path to a library.
+pkgcfg_lib_GTK4_pangocairo-1.0:FILEPATH=/opt/homebrew/Cellar/pango/1.50.14/lib/libpangocairo-1.0.dylib
 
 
 ########################
@@ -333,4 +375,72 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/opt/homebrew/bin/pkg-config][v0.29.2()]
+GTK4_CFLAGS:INTERNAL=-I/opt/homebrew/Cellar/gtk4/4.12.4/include/gtk-4.0;-I/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;-I/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;-I/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;-I/opt/homebrew/Cellar/fribidi/1.0.13/include/fribidi;-I/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;-I/opt/homebrew/Cellar/graphite2/1.3.14/include;-I/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/include/gdk-pixbuf-2.0;-I/opt/homebrew/Cellar/libtiff/4.6.0/include;-I/opt/homebrew/Cellar/zstd/1.5.5/include;-I/opt/homebrew/Cellar/xz/5.4.5/include;-I/opt/homebrew/Cellar/jpeg-turbo/3.0.1/include;-I/opt/homebrew/Cellar/cairo/1.18.0/include/cairo;-I/opt/homebrew/Cellar/fontconfig/2.15.0/include;-I/opt/homebrew/opt/freetype/include/freetype2;-I/opt/homebrew/opt/libpng/include/libpng16;-I/opt/homebrew/Cellar/libxext/1.3.5/include;-I/opt/homebrew/Cellar/libxrender/0.9.11/include;-I/opt/homebrew/Cellar/libx11/1.8.7/include;-I/opt/homebrew/Cellar/libxcb/1.16/include;-I/opt/homebrew/Cellar/libxau/1.0.11/include;-I/opt/homebrew/Cellar/libxdmcp/1.1.4/include;-I/opt/homebrew/Cellar/pixman/0.42.2/include/pixman-1;-I/opt/homebrew/Cellar/graphene/1.10.8/include/graphene-1.0;-I/opt/homebrew/Cellar/graphene/1.10.8/lib/graphene-1.0/include;-I/opt/homebrew/Cellar/glib/2.78.4/include;-I/opt/homebrew/Cellar/glib/2.78.4/include/glib-2.0;-I/opt/homebrew/Cellar/glib/2.78.4/lib/glib-2.0/include;-I/opt/homebrew/opt/gettext/include;-I/opt/homebrew/Cellar/pcre2/10.42/include;-I/opt/homebrew/Cellar/xorgproto/2023.2/include;-I/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include/ffi
+GTK4_CFLAGS_I:INTERNAL=
+GTK4_CFLAGS_OTHER:INTERNAL=
+GTK4_FOUND:INTERNAL=1
+GTK4_INCLUDEDIR:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/include
+GTK4_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/include/gtk-4.0;/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;/opt/homebrew/Cellar/fribidi/1.0.13/include/fribidi;/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;/opt/homebrew/Cellar/graphite2/1.3.14/include;/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/include/gdk-pixbuf-2.0;/opt/homebrew/Cellar/libtiff/4.6.0/include;/opt/homebrew/Cellar/zstd/1.5.5/include;/opt/homebrew/Cellar/xz/5.4.5/include;/opt/homebrew/Cellar/jpeg-turbo/3.0.1/include;/opt/homebrew/Cellar/cairo/1.18.0/include/cairo;/opt/homebrew/Cellar/fontconfig/2.15.0/include;/opt/homebrew/opt/freetype/include/freetype2;/opt/homebrew/opt/libpng/include/libpng16;/opt/homebrew/Cellar/libxext/1.3.5/include;/opt/homebrew/Cellar/libxrender/0.9.11/include;/opt/homebrew/Cellar/libx11/1.8.7/include;/opt/homebrew/Cellar/libxcb/1.16/include;/opt/homebrew/Cellar/libxau/1.0.11/include;/opt/homebrew/Cellar/libxdmcp/1.1.4/include;/opt/homebrew/Cellar/pixman/0.42.2/include/pixman-1;/opt/homebrew/Cellar/graphene/1.10.8/include/graphene-1.0;/opt/homebrew/Cellar/graphene/1.10.8/lib/graphene-1.0/include;/opt/homebrew/Cellar/glib/2.78.4/include;/opt/homebrew/Cellar/glib/2.78.4/include/glib-2.0;/opt/homebrew/Cellar/glib/2.78.4/lib/glib-2.0/include;/opt/homebrew/opt/gettext/include;/opt/homebrew/Cellar/pcre2/10.42/include;/opt/homebrew/Cellar/xorgproto/2023.2/include;/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include/ffi
+GTK4_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/gtk4/4.12.4/lib;-L/opt/homebrew/Cellar/pango/1.50.14/lib;-L/opt/homebrew/Cellar/harfbuzz/8.3.0/lib;-L/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/lib;-L/opt/homebrew/Cellar/cairo/1.18.0/lib;-L/opt/homebrew/Cellar/graphene/1.10.8/lib;-L/opt/homebrew/Cellar/glib/2.78.4/lib;-L/opt/homebrew/opt/gettext/lib;-lgtk-4;-lpangocairo-1.0;-lpango-1.0;-lharfbuzz;-lgdk_pixbuf-2.0;-lcairo-gobject;-lcairo;-lgraphene-1.0;-lgio-2.0;-lgobject-2.0;-lglib-2.0;-lintl
+GTK4_LDFLAGS_OTHER:INTERNAL=
+GTK4_LIBDIR:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/lib
+GTK4_LIBRARIES:INTERNAL=gtk-4;pangocairo-1.0;pango-1.0;harfbuzz;gdk_pixbuf-2.0;cairo-gobject;cairo;graphene-1.0;gio-2.0;gobject-2.0;glib-2.0;intl
+GTK4_LIBRARY_DIRS:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/lib;/opt/homebrew/Cellar/pango/1.50.14/lib;/opt/homebrew/Cellar/harfbuzz/8.3.0/lib;/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/lib;/opt/homebrew/Cellar/cairo/1.18.0/lib;/opt/homebrew/Cellar/graphene/1.10.8/lib;/opt/homebrew/Cellar/glib/2.78.4/lib;/opt/homebrew/opt/gettext/lib
+GTK4_LIBS:INTERNAL=
+GTK4_LIBS_L:INTERNAL=
+GTK4_LIBS_OTHER:INTERNAL=
+GTK4_LIBS_PATHS:INTERNAL=
+GTK4_MODULE_NAME:INTERNAL=gtk4
+GTK4_PREFIX:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4
+GTK4_STATIC_CFLAGS:INTERNAL=-I/opt/homebrew/Cellar/gtk4/4.12.4/include/gtk-4.0;-I/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;-I/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;-I/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;-I/opt/homebrew/Cellar/fribidi/1.0.13/include/fribidi;-I/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;-I/opt/homebrew/Cellar/graphite2/1.3.14/include;-I/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/include/gdk-pixbuf-2.0;-I/opt/homebrew/Cellar/libtiff/4.6.0/include;-I/opt/homebrew/Cellar/zstd/1.5.5/include;-I/opt/homebrew/Cellar/xz/5.4.5/include;-I/opt/homebrew/Cellar/jpeg-turbo/3.0.1/include;-I/opt/homebrew/Cellar/cairo/1.18.0/include/cairo;-I/opt/homebrew/Cellar/fontconfig/2.15.0/include;-I/opt/homebrew/opt/freetype/include/freetype2;-I/opt/homebrew/opt/libpng/include/libpng16;-I/opt/homebrew/Cellar/libxext/1.3.5/include;-I/opt/homebrew/Cellar/libxrender/0.9.11/include;-I/opt/homebrew/Cellar/libx11/1.8.7/include;-I/opt/homebrew/Cellar/libxcb/1.16/include;-I/opt/homebrew/Cellar/libxau/1.0.11/include;-I/opt/homebrew/Cellar/libxdmcp/1.1.4/include;-I/opt/homebrew/Cellar/pixman/0.42.2/include/pixman-1;-I/opt/homebrew/Cellar/graphene/1.10.8/include/graphene-1.0;-I/opt/homebrew/Cellar/graphene/1.10.8/lib/graphene-1.0/include;-I/opt/homebrew/Cellar/glib/2.78.4/include;-I/opt/homebrew/Cellar/glib/2.78.4/include/glib-2.0;-I/opt/homebrew/Cellar/glib/2.78.4/lib/glib-2.0/include;-I/opt/homebrew/opt/gettext/include;-I/opt/homebrew/Cellar/pcre2/10.42/include;-I/opt/homebrew/Cellar/xorgproto/2023.2/include;-I/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include/ffi
+GTK4_STATIC_CFLAGS_I:INTERNAL=
+GTK4_STATIC_CFLAGS_OTHER:INTERNAL=
+GTK4_STATIC_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/include/gtk-4.0;/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;/opt/homebrew/Cellar/pango/1.50.14/include/pango-1.0;/opt/homebrew/Cellar/fribidi/1.0.13/include/fribidi;/opt/homebrew/Cellar/harfbuzz/8.3.0/include/harfbuzz;/opt/homebrew/Cellar/graphite2/1.3.14/include;/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/include/gdk-pixbuf-2.0;/opt/homebrew/Cellar/libtiff/4.6.0/include;/opt/homebrew/Cellar/zstd/1.5.5/include;/opt/homebrew/Cellar/xz/5.4.5/include;/opt/homebrew/Cellar/jpeg-turbo/3.0.1/include;/opt/homebrew/Cellar/cairo/1.18.0/include/cairo;/opt/homebrew/Cellar/fontconfig/2.15.0/include;/opt/homebrew/opt/freetype/include/freetype2;/opt/homebrew/opt/libpng/include/libpng16;/opt/homebrew/Cellar/libxext/1.3.5/include;/opt/homebrew/Cellar/libxrender/0.9.11/include;/opt/homebrew/Cellar/libx11/1.8.7/include;/opt/homebrew/Cellar/libxcb/1.16/include;/opt/homebrew/Cellar/libxau/1.0.11/include;/opt/homebrew/Cellar/libxdmcp/1.1.4/include;/opt/homebrew/Cellar/pixman/0.42.2/include/pixman-1;/opt/homebrew/Cellar/graphene/1.10.8/include/graphene-1.0;/opt/homebrew/Cellar/graphene/1.10.8/lib/graphene-1.0/include;/opt/homebrew/Cellar/glib/2.78.4/include;/opt/homebrew/Cellar/glib/2.78.4/include/glib-2.0;/opt/homebrew/Cellar/glib/2.78.4/lib/glib-2.0/include;/opt/homebrew/opt/gettext/include;/opt/homebrew/Cellar/pcre2/10.42/include;/opt/homebrew/Cellar/xorgproto/2023.2/include;/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include/ffi
+GTK4_STATIC_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/gtk4/4.12.4/lib;-L/opt/homebrew/Cellar/pango/1.50.14/lib;-L/opt/homebrew/Cellar/harfbuzz/8.3.0/lib;-L/opt/homebrew/Cellar/pango/1.50.14/lib;-L/opt/homebrew/Cellar/fribidi/1.0.13/lib;-L/opt/homebrew/Cellar/harfbuzz/8.3.0/lib;-L/opt/homebrew/Cellar/graphite2/1.3.14/lib;-L/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/lib;-L/opt/homebrew/Cellar/libtiff/4.6.0/lib;-L/opt/homebrew/Cellar/zstd/1.5.5/lib;-L/opt/homebrew/Cellar/xz/5.4.5/lib;-L/opt/homebrew/Cellar/jpeg-turbo/3.0.1/lib;-L/opt/homebrew/Cellar/cairo/1.18.0/lib;-L/opt/homebrew/Cellar/fontconfig/2.15.0/lib;-L/opt/homebrew/opt/freetype/lib;-L/opt/homebrew/opt/libpng/lib;-L/opt/homebrew/Cellar/libxext/1.3.5/lib;-L/opt/homebrew/Cellar/libxrender/0.9.11/lib;-L/opt/homebrew/Cellar/libx11/1.8.7/lib;-L/opt/homebrew/Cellar/libxcb/1.16/lib;-L/opt/homebrew/Cellar/libxau/1.0.11/lib;-L/opt/homebrew/Cellar/libxdmcp/1.1.4/lib;-L/opt/homebrew/Cellar/pixman/0.42.2/lib;-L/opt/homebrew/Cellar/graphene/1.10.8/lib;-L/opt/homebrew/Cellar/glib/2.78.4/lib;-L/opt/homebrew/opt/gettext/lib;-L/opt/homebrew/Cellar/pcre2/10.42/lib;-L/usr/lib;-lgtk-4;-lpangocairo-1.0;-lm;-framework;CoreFoundation;-framework;ApplicationServices;-lpangoft2-1.0;-lm;-framework;CoreFoundation;-framework;ApplicationServices;-lharfbuzz-gobject;-lpango-1.0;-lm;-framework;CoreFoundation;-framework;ApplicationServices;-lfribidi;-lharfbuzz;-lm;-framework;ApplicationServices;-lgraphite2;-lgdk_pixbuf-2.0;-lm;-lintl;-ltiff;-lzstd;-llzma;-ljpeg;-lz;-lzstd;-llzma;-pthread;-lpthread;-ljpeg;-lcairo-gobject;-lm;-ldl;-framework;CoreFoundation;-framework;ApplicationServices;-lcairo;-lm;-ldl;-framework;CoreFoundation;-framework;ApplicationServices;-lfontconfig;-lexpat;-lfreetype;-lbz2;-lpng16;-lz;-lXext;-lXrender;-lX11;-lxcb-render;-lxcb-shm;-lxcb;-lXau;-lXdmcp;-lpixman-1;-lgraphene-1.0;-lm;-lgio-2.0;-lintl;-framework;Foundation;-framework;CoreFoundation;-framework;AppKit;-lresolv;-lgmodule-2.0;-lintl;-lz;-lgobject-2.0;-lintl;-lffi;-lglib-2.0;-lintl;-liconv;-lm;-framework;Foundation;-framework;CoreFoundation;-framework;AppKit;-framework;Carbon;-lpcre2-8;-D_THREAD_SAFE;-pthread
+GTK4_STATIC_LDFLAGS_OTHER:INTERNAL=-framework;CoreFoundation;-framework;ApplicationServices;-framework;CoreFoundation;-framework;ApplicationServices;-framework;CoreFoundation;-framework;ApplicationServices;-pthread;-framework;CoreFoundation;-framework;ApplicationServices;-framework;CoreFoundation;-framework;ApplicationServices;-framework;Foundation;-framework;CoreFoundation;-framework;AppKit;-framework;Foundation;-framework;CoreFoundation;-framework;AppKit;-framework;Carbon;-D_THREAD_SAFE;-pthread
+GTK4_STATIC_LIBDIR:INTERNAL=
+GTK4_STATIC_LIBRARIES:INTERNAL=gtk-4;pangocairo-1.0;m;pangoft2-1.0;m;harfbuzz-gobject;pango-1.0;m;fribidi;harfbuzz;m;graphite2;gdk_pixbuf-2.0;m;intl;tiff;zstd;lzma;jpeg;z;zstd;lzma;pthread;jpeg;cairo-gobject;m;dl;cairo;m;dl;fontconfig;expat;freetype;bz2;png16;z;Xext;Xrender;X11;xcb-render;xcb-shm;xcb;Xau;Xdmcp;pixman-1;graphene-1.0;m;gio-2.0;intl;resolv;gmodule-2.0;intl;z;gobject-2.0;intl;ffi;glib-2.0;intl;iconv;m;pcre2-8
+GTK4_STATIC_LIBRARY_DIRS:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/lib;/opt/homebrew/Cellar/pango/1.50.14/lib;/opt/homebrew/Cellar/harfbuzz/8.3.0/lib;/opt/homebrew/Cellar/pango/1.50.14/lib;/opt/homebrew/Cellar/fribidi/1.0.13/lib;/opt/homebrew/Cellar/harfbuzz/8.3.0/lib;/opt/homebrew/Cellar/graphite2/1.3.14/lib;/opt/homebrew/Cellar/gdk-pixbuf/2.42.10_1/lib;/opt/homebrew/Cellar/libtiff/4.6.0/lib;/opt/homebrew/Cellar/zstd/1.5.5/lib;/opt/homebrew/Cellar/xz/5.4.5/lib;/opt/homebrew/Cellar/jpeg-turbo/3.0.1/lib;/opt/homebrew/Cellar/cairo/1.18.0/lib;/opt/homebrew/Cellar/fontconfig/2.15.0/lib;/opt/homebrew/opt/freetype/lib;/opt/homebrew/opt/libpng/lib;/opt/homebrew/Cellar/libxext/1.3.5/lib;/opt/homebrew/Cellar/libxrender/0.9.11/lib;/opt/homebrew/Cellar/libx11/1.8.7/lib;/opt/homebrew/Cellar/libxcb/1.16/lib;/opt/homebrew/Cellar/libxau/1.0.11/lib;/opt/homebrew/Cellar/libxdmcp/1.1.4/lib;/opt/homebrew/Cellar/pixman/0.42.2/lib;/opt/homebrew/Cellar/graphene/1.10.8/lib;/opt/homebrew/Cellar/glib/2.78.4/lib;/opt/homebrew/opt/gettext/lib;/opt/homebrew/Cellar/pcre2/10.42/lib;/usr/lib
+GTK4_STATIC_LIBS:INTERNAL=
+GTK4_STATIC_LIBS_L:INTERNAL=
+GTK4_STATIC_LIBS_OTHER:INTERNAL=
+GTK4_STATIC_LIBS_PATHS:INTERNAL=
+GTK4_VERSION:INTERNAL=4.12.4
+GTK4_gtk4_INCLUDEDIR:INTERNAL=
+GTK4_gtk4_LIBDIR:INTERNAL=
+GTK4_gtk4_PREFIX:INTERNAL=
+GTK4_gtk4_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+__pkg_config_arguments_GTK4:INTERNAL=REQUIRED;IMPORTED_TARGET;gtk4
+__pkg_config_checked_GTK4:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_cairo
+pkgcfg_lib_GTK4_cairo-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_cairo-gobject
+pkgcfg_lib_GTK4_cairo-gobject-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_gdk_pixbuf-2.0
+pkgcfg_lib_GTK4_gdk_pixbuf-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_gio-2.0
+pkgcfg_lib_GTK4_gio-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_glib-2.0
+pkgcfg_lib_GTK4_glib-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_gobject-2.0
+pkgcfg_lib_GTK4_gobject-2.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_graphene-1.0
+pkgcfg_lib_GTK4_graphene-1.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_gtk-4
+pkgcfg_lib_GTK4_gtk-4-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_harfbuzz
+pkgcfg_lib_GTK4_harfbuzz-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_intl
+pkgcfg_lib_GTK4_intl-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_pango-1.0
+pkgcfg_lib_GTK4_pango-1.0-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_GTK4_pangocairo-1.0
+pkgcfg_lib_GTK4_pangocairo-1.0-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/opt/homebrew/Cellar/gtk4/4.12.4/lib
 
