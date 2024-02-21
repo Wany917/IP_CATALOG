@@ -10,12 +10,16 @@ void deleteIP(FILE *catalogue);
 void displayIP(FILE *catalogue);
 
 const char filename[] = "catalogue.txt";
+const char pattern[] = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 
 int main(){
 
     system("clear");
 
     FILE *catalogue;
+
+    catalogue = fopen(filename, "a+");
+    fclose(catalogue);
 
     char option = ' ';
 
@@ -86,7 +90,6 @@ void menu() {
 void addIP(FILE *catalogue){
     regex_t regex;
     int regi;
-    const char pattern[] = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 
     regi = regcomp(&regex, pattern, REG_EXTENDED);
     if (regi) {
