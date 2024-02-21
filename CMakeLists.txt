@@ -12,6 +12,5 @@ pkg_check_modules(GTK4 REQUIRED IMPORTED_TARGET gtk4)
 include_directories(${GTK4_INCLUDE_DIRS})
 link_directories(${GTK4_LIBRARY_DIRS})
 
-add_executable(IP_CATALOG main.c
-        include/conf.inc.h)
+add_executable(IP_CATALOG main.c include/conf.inc.h)
 target_link_libraries(IP_CATALOG PkgConfig::GTK4)
