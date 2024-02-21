@@ -181,10 +181,13 @@ void deleteIP(FILE *catalogue){
     FILE *check;
     char line[50];
     char addr[50];
+    char mask[50];
     int isIP = 0;
 
-    printf("    Enter Ip do you want to remove : ");
+    printf("    Enter Ip that you want to remove : ");
     scanf(" %s", addr);
+    printf("\n    Enter Mask of the IP that you want to remove : ");
+    scanf(" %s", mask);
 
     catalogue = fopen(filename, "r+");
     if (catalogue == NULL) {
@@ -199,21 +202,45 @@ void deleteIP(FILE *catalogue){
         exit(1);
     }
 
+    int len1 = strlen(addr);
+    int len2 = strlen(mask);
+
+    char addrmask[len1 + len2 + 3];
+
+    strcpy(addrmask, addr);
+                
+    strcat(addrmask, " / ");
+                
+    strcat(addrmask, mask);
+
     while (fgets(line, sizeof(line), catalogue) != NULL) {
-        if (strstr(line, addr) == NULL) {
-            fputs(line, check);
+        if (strstr(line, addrmask) != NULL) {
+            isIP = 1;
+        }else{
+            isIP = 0;
         }
     }
 
-    fclose(catalogue);
-    fclose(check);
+    if(isIP == 1){
 
-    remove(filename);
+        while (fgets(line, sizeof(line), catalogue) != NULL) {
+            if (strstr(line, addrmask) == NULL) {
+                fputs(line, check);
+            }
+        }
 
-    rename("check.txt", filename);
+        fclose(catalogue);
+        fclose(check);
 
-    printf("\n    Ip : \"%s\" successfully removed !\n", addr);
+        remove(filename);
 
+        rename("check.txt", filename);
+
+        printf("\n    Ip : \"%s\" successfully removed !\n", addrmask);
+
+    }else if(isIP == 0){
+        printf("\n    Ip : %s isn't registered !\n", addrmask);
+    }
 }
 
 void displayIP(FILE *catalogue){
