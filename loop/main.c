@@ -11,6 +11,7 @@ void displayIP(FILE *catalogue);
 
 const char filename[] = "catalogue.txt";
 const char pattern[] = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+char *masks[] = {"128.0.0.0","192.0.0.0","224.0.0.0","240.0.0.0","248.0.0.0","252.0.0.0","254.0.0.0","255.0.0.0","255.128.0.0","255.192.0.0","255.224.0.0","255.240.0.0","255.248.0.0","255.252.0.0","255.254.0.0","255.255.0.0","255.255.128.0","255.255.192.0","255.255.224.0","255.255.240.0","255.255.248.0","255.255.252.0","255.255.254.0","255.255.255.0","255.255.255.128","255.255.255.192","255.255.255.224","255.255.255.240","255.255.255.248","255.255.255.252","255.255.255.254","255.255.255.255"};
 
 int main(){
 
@@ -56,10 +57,10 @@ int main(){
                 break;
 
                 default:
-                    printf("\n    This is not a valid option !\n\n");
+                    printf("    This is not a valid option !\n\n");
             }
         }else{
-            printf("\n    This is not a valid option !\n\n");
+            printf("    This is not a valid option !\n\n");
         }
         usleep(750000);
         system("clear");
@@ -121,10 +122,42 @@ void addIP(FILE *catalogue){
         }
 
         if(isIP == 0){
-            catalogue = fopen(filename, "a+");
-            fprintf(catalogue, "%s\n", addr);
-            fclose(catalogue);
-            printf("\n    IP successfully added !\n");
+
+            char mask[20];
+            printf("\n    Enter Mask : ");
+            scanf(" %20s", mask);
+
+            int found = 0;
+
+            for (int i = 0; i < sizeof(masks) / sizeof(masks[0]); i++) {
+                if (strcmp(masks[i], mask) == 0) {
+                    found = 1;
+                    break;
+                }
+            }
+
+            if (found) {
+                
+                int len1 = strlen(addr);
+                int len2 = strlen(mask);
+
+                char addrmask[len1 + len2 + 3];
+
+                strcpy(addrmask, addr);
+                
+                strcat(addrmask, " / ");
+                
+                strcat(addrmask, mask);
+
+                catalogue = fopen(filename, "a+");
+                fprintf(catalogue, "%s\n", addrmask);
+                fclose(catalogue);
+                printf("\n    IP successfully added !\n");
+
+            } else {
+                printf("\n    Mask : \"%s\" isn't a correct mask !\n", mask);
+            }
+
         }else if(isIP == 1){
             printf("\n    Ip : %s is already registered !\n", addr);
         }
