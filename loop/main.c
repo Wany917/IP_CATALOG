@@ -4,10 +4,14 @@
 #include <regex.h>
 #include <unistd.h>
 
+#define MAX_IP_LEN 20
+#define MAX_LINE_LEN 50
+
 void menu();
 void addIP(FILE *catalogue);
 void deleteIP(FILE *catalogue);
 void displayIP(FILE *catalogue);
+void searchByMask(FILE *catalogue);
 
 const char filename[] = "catalogue.txt";
 const char pattern[] = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
@@ -44,7 +48,7 @@ int main(){
                 break;
 
                 case 's':
-
+                    searchByMask(catalogue);
                 break;
 
                 case 'd':
@@ -271,3 +275,107 @@ void displayIP(FILE *catalogue){
     }
 
 }
+
+
+void searchByMask(FILE *catalogue) {
+    regex_t regex;
+    char inputIP[MAX_IP_LEN], inputMask[MAX_IP_LEN];
+    char line[MAX_LINE_LEN];
+    int count = 0;
+
+    // Compile et valide l'expression régulière
+    if (regcomp(&regex, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", REG_EXTENDED)) {
+        fprintf(stderr, "Could not compile regex\n");
+        exit(1);
+    }
+
+    printf("Enter IP address: ");
+    scanf("%19s", inputIP);
+    if (regexec(&regex, inputIP, 0, NULL, 0)) {
+        printf("Invalid IP address format.\n");
+        regfree(&regex);
+        return;
+    }
+
+    printf("Enter subnet mask: ");
+    scanf("%19s", inputMask);
+    if (regexec(&regex, inputMask, 0, NULL, 0)) {
+        printf("Invalid subnet mask format.\n");
+        regfree(&regex);
+        return;
+    }
+    regfree(&regex);
+
+    // Tokenise et stocke les segments de l'adresse IP et du masque saisis
+    int inputIPOctets[4], inputMaskOctets[4];
+    char *token = strtok(inputIP, ".");
+    for (int i = 0; i < 4 && token != NULL; i++) {
+        inputIPOctets[i] = atoi(token);
+        token = strtok(NULL, ".");
+    }
+    token = strtok(inputMask, ".");
+    for (int i = 0; i < 4 && token != NULL; i++) {
+        inputMaskOctets[i] = atoi(token);
+        token = strtok(NULL, ".");
+    }
+
+    catalogue = fopen("catalogue.txt", "r");
+    if (!catalogue) {
+        perror("Failed to open file");
+        return;
+    }
+
+    while (fgets(line, sizeof(line), catalogue)) {
+        char *newline = strchr(line, '\n');
+        if (newline) *newline = 0;
+
+        char *fileIP = strtok(line, " / ");
+        char *fileMask = strtok(NULL, " / ");
+        if (!fileIP || !fileMask) continue;
+
+        int fileIPOctets[4], match = 1;
+        token = strtok(fileIP, ".");
+        for (int i = 0; i < 4 && token != NULL; i++) {
+            fileIPOctets[i] = atoi(token);
+            token = strtok(NULL, ".");
+        }
+
+        // Compare chaque segment de l'adresse IP et du masque
+        for (int i = 0; i < 4; i++) {
+            if ((inputIPOctets[i] & inputMaskOctets[i]) != (fileIPOctets[i] & inputMaskOctets[i])) {
+                match = 0;
+                break;
+            }
+        }
+
+        if (match) {
+            if (count == 0) {
+                printf("Addresses found:\n");
+            }
+            count++;
+
+            // Reconstruit l'adresse IP complète à partir des segments
+            char fullIP[20]; // Assurez-vous que cette taille est suffisante pour contenir une adresse IP complète
+            snprintf(fullIP, sizeof(fullIP), "%d.%d.%d.%d", fileIPOctets[0], fileIPOctets[1], fileIPOctets[2], fileIPOctets[3]);
+
+            printf("%d- %s\n", count, fullIP); // Utilisez `fullIP` pour afficher l'adresse IP complète
+        }
+    }
+
+    fclose(catalogue);
+
+    if (count == 0) {
+        printf("No addresses found.\n");
+    }
+
+    printf("\n    Enter r to return to menu !\n");
+    
+    char ret = ' ';
+
+    scanf(" %s", &ret);
+
+    while(ret != 'r'){
+        scanf(" %s", &ret);
+    }
+}
+
