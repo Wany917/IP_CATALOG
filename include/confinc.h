@@ -3,13 +3,14 @@
 //
 
 
-#ifndef CONF_INC_H
+#ifndef CONFINC_H
 
-#define CONF_INC_H
+#define CONFINC_H
     #include <regex.h>
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h>
     #include <unistd.h>
     #include <gtk/gtk.h>
-#endif //CONF_INC_H
+    #include <sqlite3.h>
+#endif //CONFINC_H
